@@ -41,7 +41,7 @@ object LineCounter {
         "  -i <PATTERN>  : ignore files"
 
     val exts = List(
-        "py","R","scala","java","c","cc","cpp","txt"
+        "py","R","scala","java","c","cc","cpp","h","hpp","cxx","hxx","hh"
     )
 
     def main(args: Array[String]) {
@@ -121,7 +121,7 @@ object LineCounter {
         if (file.isDirectory) {
             // filter ignored files            
             val fnames = if (re == "") file.listFiles else
-                file.listFiles.filterNot(_.getPath matches re)
+                file.listFiles.filterNot(_.getName matches re)
 
             // split and recursively traverse
             val (l,r) = fnames.splitAt(fnames.length / 2)
