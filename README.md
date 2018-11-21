@@ -1,2 +1,2 @@
 # linecounter
-counting lines with monads
+counting lines with monoids
